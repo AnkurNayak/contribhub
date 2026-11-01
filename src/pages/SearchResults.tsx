@@ -24,7 +24,7 @@ export default function SearchResults() {
   const q = params.get('q')?.trim() ?? ''
   const requested = params.get('tab')
   const tab = requested === 'issues' || requested === 'languages' ? requested : 'projects'
-  useDocumentTitle(q ? `“${q}”` : 'Search')
+  useDocumentTitle(q ? `“${q}”` : 'Search', { noindex: true })
 
   const enabled = q.length > 0
   const repos = useRepoSearch({

@@ -18,7 +18,7 @@ import { formatCount } from '@/utils/format'
 import { buildTrendingQuery, starVelocity } from '@/utils/queryBuilders'
 
 export default function Overview() {
-  useDocumentTitle('Overview')
+  useDocumentTitle('Overview', { noindex: true })
   const { languages } = usePreferences().preferences
   const { bookmarks, collections } = useBookmarks()
   const [selected, setSelected] = useState<string | null>(null)

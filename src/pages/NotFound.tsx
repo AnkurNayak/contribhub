@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 import { useDocumentTitle } from '@/hooks/useDocumentTitle'
 
 export default function NotFound() {
-  useDocumentTitle('Page not found')
+  useDocumentTitle('Page not found', { noindex: true })
   return (
     <div className="mx-auto max-w-lg py-10">
       <EmptyState icon={Compass} title="Page not found" description="This page doesn’t exist or may have moved.">

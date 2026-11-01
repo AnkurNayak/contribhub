@@ -14,7 +14,10 @@ import { buildRepoQuery } from '@/utils/queryBuilders'
 const PARAM_NAMES = ['q', 'language', 'topic', 'stars', 'sort']
 
 export default function Explore() {
-  useDocumentTitle('Explore Projects')
+  useDocumentTitle('Explore Open-Source Projects', {
+    description:
+      'Search public GitHub repositories and find open-source projects to contribute to. Filter by programming language, stars and topic.',
+  })
   const { params, setParam, page } = useUrlParams()
   const { perPage } = usePreferences().preferences
 

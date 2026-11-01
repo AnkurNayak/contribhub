@@ -124,7 +124,7 @@ function SavedItem({ item }: { item: Bookmark }) {
 }
 
 export default function Bookmarks() {
-  useDocumentTitle('My Bookmarks')
+  useDocumentTitle('My Bookmarks', { noindex: true })
   const { bookmarks, collections, createCollection, renameCollection, deleteCollection } = useBookmarks()
   const { params, setParam } = useUrlParams()
   const [term, setTerm] = useState('')

@@ -16,7 +16,9 @@ import { buildTrendingQuery, starVelocity, TRENDING_WINDOWS } from '@/utils/quer
 const WINDOWS = Object.keys(TRENDING_WINDOWS) as TimeWindow[]
 
 export default function Trending() {
-  useDocumentTitle('Trending Projects')
+  useDocumentTitle('Trending GitHub Projects', {
+    description: 'See new GitHub repositories gaining stars fastest today, this week and this month, by language.',
+  })
   const { params, setParam } = useUrlParams()
   const raw = params.get('window') as TimeWindow | null
   const window: TimeWindow = raw && raw in TRENDING_WINDOWS ? raw : 'weekly'

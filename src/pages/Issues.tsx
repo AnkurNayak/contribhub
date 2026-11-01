@@ -18,7 +18,10 @@ function parseSort(value: string | null): IssueFilters['sort'] {
 }
 
 export default function Issues() {
-  useDocumentTitle('Find Issues')
+  useDocumentTitle('Find Good First Issues on GitHub', {
+    description:
+      'Browse open good first issues and help wanted issues from public GitHub repositories. Filter by language, label and repository.',
+  })
   const { params, setParam, page } = useUrlParams()
   const { perPage } = usePreferences().preferences
 

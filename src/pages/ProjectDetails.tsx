@@ -52,7 +52,11 @@ export default function ProjectDetails() {
   const { params, setParam } = useUrlParams()
   const query = useRepository(owner, name)
   const { isSaved, toggleRepo } = useBookmarks()
-  useDocumentTitle(`${owner}/${name}`)
+  useDocumentTitle(`${owner}/${name}`, {
+    description: query.data
+      ? `How to contribute to ${query.data.fullName}: open issues, good first issues and setup steps.${query.data.description ? ` ${query.data.description}` : ''}`.slice(0, 160)
+      : undefined,
+  })
 
   const requested = params.get('tab') ?? ''
   const tab = TABS.includes(requested) ? requested : 'readme'

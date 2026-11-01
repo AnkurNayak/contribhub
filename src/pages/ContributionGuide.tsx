@@ -59,7 +59,10 @@ function Section({ id, step, title, children }: { id: string; step?: number; tit
 }
 
 export default function ContributionGuide() {
-  useDocumentTitle('Contribution Guide')
+  useDocumentTitle('How to Contribute to Open Source', {
+    description:
+      'A step-by-step beginner guide to contributing to open source: find a project, fork, clone, create a branch and open your first pull request.',
+  })
 
   return (
     <>

@@ -60,7 +60,7 @@ const THEMES: { id: Theme; label: string; icon: typeof Sun }[] = [
 ]
 
 export default function Settings() {
-  useDocumentTitle('Settings')
+  useDocumentTitle('Settings', { noindex: true })
   const { theme, setTheme } = useTheme()
   const { preferences, update } = usePreferences()
   const bookmarks = useBookmarks()

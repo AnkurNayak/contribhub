@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://contribhub-peach.vercel.app/sitemap.xml

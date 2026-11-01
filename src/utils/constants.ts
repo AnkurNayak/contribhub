@@ -2,6 +2,11 @@ export const PROJECT_REPO_URL = import.meta.env?.VITE_PROJECT_REPO_URL || 'https
 
 const BASE_URL = import.meta.env?.BASE_URL ?? '/'
 
+export const SITE_URL = 'https://contribhub-peach.vercel.app'
+export const SITE_TITLE = 'ContribHub: Find Good First Issues and Open-Source Projects'
+export const SITE_DESCRIPTION =
+  'Find good first issues and open-source projects that match your skills. Filter GitHub issues by language and label, and start contributing. Free, no sign-up.'
+
 export const AUTHORS = [
   { handle: 'ankur_nay', url: 'https://x.com/ankur_nay', avatar: `${BASE_URL}avatar.jpg` },
   { handle: 'Humble__Fool', url: 'https://x.com/Humble__Fool', avatar: `${BASE_URL}avatar-humble-fool.jpg` },

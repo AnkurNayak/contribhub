@@ -3,12 +3,52 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ContribHub: Find Good First Issues and Open-Source Projects</title>
     <meta
       name="description"
-      content="Discover open-source projects, find issues that match your skills, and make your next contribution."
+      content="Find good first issues and open-source projects that match your skills. Filter GitHub issues by language and label, and start contributing. Free, no sign-up."
     />
+    <link rel="canonical" href="https://contribhub-peach.vercel.app/" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>ContribHub – Find your next open-source contribution</title>
+    <meta name="theme-color" content="#111312" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ContribHub" />
+    <meta property="og:url" content="https://contribhub-peach.vercel.app/" />
+    <meta property="og:title" content="ContribHub: Find Good First Issues and Open-Source Projects" />
+    <meta
+      property="og:description"
+      content="Find good first issues and open-source projects that match your skills. Free, no sign-up."
+    />
+    <meta property="og:image" content="https://contribhub-peach.vercel.app/og-image.png" />
+    <meta property="og:image:secure_url" content="https://contribhub-peach.vercel.app/og-image.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="ContribHub: Your next open-source contribution starts here." />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ContribHub: Find Good First Issues and Open-Source Projects" />
+    <meta
+      name="twitter:description"
+      content="Find good first issues and open-source projects that match your skills. Free, no sign-up."
+    />
+    <meta name="twitter:image" content="https://contribhub-peach.vercel.app/og-image.png" />
+    <meta name="twitter:image:alt" content="ContribHub: Your next open-source contribution starts here." />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "ContribHub",
+        "url": "https://contribhub-peach.vercel.app/",
+        "description": "Find good first issues and open-source projects that match your skills.",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any",
+        "isAccessibleForFree": true,
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      }
+    </script>
     <script>
       // Applied before first paint so dark-mode users never see a light flash.
       try {
@@ -22,6 +62,16 @@
   </head>
   <body>
     <div id="root"></div>
+    <noscript>
+      <h1>ContribHub: find good first issues and open-source projects</h1>
+      <p>ContribHub helps developers discover GitHub projects and beginner-friendly issues. It needs JavaScript to load live GitHub data.</p>
+      <ul>
+        <li><a href="/explore">Explore open-source projects</a></li>
+        <li><a href="/issues">Find good first issues</a></li>
+        <li><a href="/trending">Trending GitHub projects</a></li>
+        <li><a href="/guide">How to contribute to open source</a></li>
+      </ul>
+    </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
