@@ -1,5 +1,12 @@
 export const PROJECT_REPO_URL = import.meta.env?.VITE_PROJECT_REPO_URL || 'https://github.com/AnkurNayak/contribhub'
 
+const BASE_URL = import.meta.env?.BASE_URL ?? '/'
+
+export const AUTHORS = [
+  { handle: 'ankur_nay', url: 'https://x.com/ankur_nay', avatar: `${BASE_URL}avatar.jpg` },
+  { handle: 'Humble__Fool', url: 'https://x.com/Humble__Fool', avatar: `${BASE_URL}avatar-humble-fool.jpg` },
+]
+
 /** Language name → GitHub linguist color. Also the list offered in filters. */
 export const LANGUAGE_COLORS: Record<string, string> = {
   JavaScript: '#f1e05a',
