@@ -6,6 +6,7 @@ import { Pagination } from '@/components/common/Pagination'
 import { EmptyState } from '@/components/common/States'
 import { usePreferences } from '@/context/PreferencesContext'
 import { useDocumentTitle } from '@/hooks/useDocumentTitle'
+import { PAGE_META } from '@/seo/routes'
 import { useIssueSearch } from '@/hooks/useGitHub'
 import { useUrlParams } from '@/hooks/useUrlParams'
 import type { IssueFilters } from '@/types/app'
@@ -18,10 +19,7 @@ function parseSort(value: string | null): IssueFilters['sort'] {
 }
 
 export default function Issues() {
-  useDocumentTitle('Find Good First Issues on GitHub', {
-    description:
-      'Browse open good first issues and help wanted issues from public GitHub repositories. Filter by language, label and repository.',
-  })
+  useDocumentTitle(PAGE_META.issues.title, { description: PAGE_META.issues.description })
   const { params, setParam, page } = useUrlParams()
   const { perPage } = usePreferences().preferences
 
@@ -47,7 +45,7 @@ export default function Issues() {
   return (
     <>
       <PageHeader
-        title="Find Issues"
+        title="Find Good First Issues"
         description="Open issues from public repositories. Starts with good first issues; combine labels to narrow further."
       />
       <IssueFiltersBar filters={filters} onChange={setParam} onClear={clear} canClear={canClear} />

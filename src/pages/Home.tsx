@@ -14,6 +14,7 @@ import { RepoGrid } from '@/components/projects/RepoGrid'
 import { Button } from '@/components/ui/button'
 import { useDocumentTitle } from '@/hooks/useDocumentTitle'
 import { useIssueSearch, useRepoSearch } from '@/hooks/useGitHub'
+import { LANGUAGE_PAGES } from '@/seo/languages'
 import { LANGUAGES, PROJECT_REPO_URL } from '@/utils/constants'
 import { formatCount } from '@/utils/format'
 
@@ -51,11 +52,11 @@ export default function Home() {
       <main className="mx-auto max-w-6xl px-4 sm:px-6">
         <section className="pt-14 pb-12 sm:pt-20">
           <h1 className="max-w-3xl text-4xl leading-[1.08] font-semibold tracking-[-0.03em] text-balance sm:text-[3.5rem]">
-            Your next open-source contribution starts here.
+            Find good first issues and open-source projects to contribute to.
           </h1>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Discover amazing open-source projects, find issues that match your skills, and become part of the developer
-            community.
+            Your next open-source contribution starts here. Discover beginner-friendly GitHub projects, find issues that
+            match your skills, and make your first pull request. Free, no sign-up.
           </p>
           <div className="mt-7 flex flex-wrap gap-2.5">
             <Button size="lg" asChild>
@@ -107,6 +108,37 @@ export default function Home() {
           </div>
         </section>
 
+        <section aria-labelledby="languages-heading" className="pb-14">
+          <div className="mb-5 flex items-end justify-between gap-4">
+            <div>
+              <h2 id="languages-heading" className="text-xl font-semibold tracking-tight">
+                Good first issues by language
+              </h2>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Beginner-friendly issues, typical first tasks and setup steps for each ecosystem.
+              </p>
+            </div>
+            <Button variant="ghost" size="sm" asChild className="shrink-0">
+              <Link to="/good-first-issues">
+                All languages <ArrowRight />
+              </Link>
+            </Button>
+          </div>
+          <ul className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6">
+            {LANGUAGE_PAGES.map((page) => (
+              <li key={page.slug}>
+                <Link
+                  to={`/good-first-issues/${page.slug}`}
+                  className="block rounded-lg border px-3 py-2.5 text-sm transition-colors hover:bg-accent"
+                >
+                  <span className="sr-only">Good first issues in </span>
+                  {page.language}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+
         <section aria-labelledby="featured-heading" className="pb-20">
           <div className="mb-5 flex items-end justify-between gap-4">
             <div>
@@ -139,8 +171,14 @@ export default function Home() {
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-6 text-[13px] text-muted-foreground sm:px-6">
           <p>Open source under the MIT license. Data from the GitHub public API; not affiliated with GitHub.</p>
           <nav aria-label="Footer" className="flex gap-4">
+            <Link to="/issues" className="hover:text-foreground">
+              Good first issues
+            </Link>
+            <Link to="/trending" className="hover:text-foreground">
+              Trending
+            </Link>
             <Link to="/guide" className="hover:text-foreground">
-              Contribution guide
+              How to contribute
             </Link>
             <a href={PROJECT_REPO_URL} target="_blank" rel="noreferrer" className="hover:text-foreground">
               GitHub

@@ -6,6 +6,7 @@ import { EmptyState } from '@/components/common/States'
 import { RepoGrid } from '@/components/projects/RepoGrid'
 import { Card } from '@/components/ui/card'
 import { useDocumentTitle } from '@/hooks/useDocumentTitle'
+import { PAGE_META } from '@/seo/routes'
 import { useRepoSearch } from '@/hooks/useGitHub'
 import { useUrlParams } from '@/hooks/useUrlParams'
 import type { TimeWindow } from '@/types/app'
@@ -16,9 +17,7 @@ import { buildTrendingQuery, starVelocity, TRENDING_WINDOWS } from '@/utils/quer
 const WINDOWS = Object.keys(TRENDING_WINDOWS) as TimeWindow[]
 
 export default function Trending() {
-  useDocumentTitle('Trending GitHub Projects', {
-    description: 'See new GitHub repositories gaining stars fastest today, this week and this month, by language.',
-  })
+  useDocumentTitle(PAGE_META.trending.title, { description: PAGE_META.trending.description })
   const { params, setParam } = useUrlParams()
   const raw = params.get('window') as TimeWindow | null
   const window: TimeWindow = raw && raw in TRENDING_WINDOWS ? raw : 'weekly'
@@ -38,7 +37,7 @@ export default function Trending() {
   return (
     <>
       <PageHeader
-        title="Trending Projects"
+        title="Trending GitHub Projects"
         description="New repositories gaining stars fastest, ranked by stars per day."
       />
 

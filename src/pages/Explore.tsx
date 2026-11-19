@@ -6,6 +6,7 @@ import { ProjectFilters } from '@/components/projects/ProjectFilters'
 import { RepoGrid } from '@/components/projects/RepoGrid'
 import { usePreferences } from '@/context/PreferencesContext'
 import { useDocumentTitle } from '@/hooks/useDocumentTitle'
+import { PAGE_META } from '@/seo/routes'
 import { useRepoSearch } from '@/hooks/useGitHub'
 import { useUrlParams } from '@/hooks/useUrlParams'
 import type { RepoFilters } from '@/types/app'
@@ -14,10 +15,7 @@ import { buildRepoQuery } from '@/utils/queryBuilders'
 const PARAM_NAMES = ['q', 'language', 'topic', 'stars', 'sort']
 
 export default function Explore() {
-  useDocumentTitle('Explore Open-Source Projects', {
-    description:
-      'Search public GitHub repositories and find open-source projects to contribute to. Filter by programming language, stars and topic.',
-  })
+  useDocumentTitle(PAGE_META.explore.title, { description: PAGE_META.explore.description })
   const { params, setParam, page } = useUrlParams()
   const { perPage } = usePreferences().preferences
 
@@ -37,7 +35,7 @@ export default function Explore() {
   return (
     <>
       <PageHeader
-        title="Explore Projects"
+        title="Explore Open-Source Projects"
         description="Search public GitHub repositories and narrow them down by language, popularity and topic."
       />
       <ProjectFilters filters={filters} onChange={setParam} onClear={clear} canClear={canClear} />

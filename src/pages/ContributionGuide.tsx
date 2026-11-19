@@ -7,28 +7,8 @@ import { PageHeader } from '@/components/common/PageHeader'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { useDocumentTitle } from '@/hooks/useDocumentTitle'
-
-const COMMANDS: [string, string][] = [
-  ['git status', 'See changed and staged files'],
-  ['git switch -c <branch>', 'Create and move to a new branch'],
-  ['git add <file>', 'Stage a change for the next commit'],
-  ['git commit -m "message"', 'Save staged changes as a commit'],
-  ['git push -u origin <branch>', 'Publish your branch to your fork'],
-  ['git fetch upstream', 'Download the latest from the original repo'],
-  ['git rebase upstream/main', 'Replay your work on top of the latest code'],
-  ['git log --oneline', 'View recent history in short form'],
-]
-
-const PRACTICES = [
-  'Read CONTRIBUTING and the code of conduct before you start.',
-  'Comment on an issue and wait for a go-ahead before large changes.',
-  'Keep each pull request focused on a single problem.',
-  'Run the project’s tests and linter locally before pushing.',
-  'Write commit messages that explain why, not just what.',
-  'Link the issue in your pull request, e.g. “Fixes #123”.',
-  'Treat review feedback as collaboration. Maintainers are often volunteers.',
-  'Be patient, then send a polite follow-up after a week or two of silence.',
-]
+import { GUIDE_COMMANDS as COMMANDS, GUIDE_FAQ, GUIDE_PRACTICES as PRACTICES } from '@/seo/guide'
+import { PAGE_META } from '@/seo/routes'
 
 const SECTIONS = [
   ['what', 'What is open source?'],
@@ -40,6 +20,7 @@ const SECTIONS = [
   ['pr', 'Open a pull request'],
   ['commands', 'Common Git commands'],
   ['practices', 'Good practices'],
+  ['faq', 'FAQ'],
 ] as const
 
 function Section({ id, step, title, children }: { id: string; step?: number; title: string; children: ReactNode }) {
@@ -59,15 +40,12 @@ function Section({ id, step, title, children }: { id: string; step?: number; tit
 }
 
 export default function ContributionGuide() {
-  useDocumentTitle('How to Contribute to Open Source', {
-    description:
-      'A step-by-step beginner guide to contributing to open source: find a project, fork, clone, create a branch and open your first pull request.',
-  })
+  useDocumentTitle(PAGE_META.guide.title, { description: PAGE_META.guide.description })
 
   return (
     <>
       <PageHeader
-        title="Contribution Guide"
+        title="How to Contribute to Open Source"
         description="From “where do I start?” to your first merged pull request, in six steps."
       />
 
@@ -192,6 +170,24 @@ git push -u origin fix/typo-in-readme`}
                 </li>
               ))}
             </ul>
+          </Section>
+
+          <Section id="faq" title="Frequently asked questions">
+            <div className="space-y-4">
+              {GUIDE_FAQ.map(([question, answer]) => (
+                <div key={question}>
+                  <h3 className="font-medium text-foreground">{question}</h3>
+                  <p className="mt-1">{answer}</p>
+                </div>
+              ))}
+            </div>
+            <p>
+              Ready to start?{' '}
+              <Link to="/good-first-issues" className="font-medium text-foreground underline underline-offset-4">
+                Find good first issues in your language
+              </Link>
+              .
+            </p>
           </Section>
         </div>
 

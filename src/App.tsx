@@ -8,6 +8,8 @@ const Home = lazy(() => import('@/pages/Home'))
 const Overview = lazy(() => import('@/pages/Overview'))
 const Explore = lazy(() => import('@/pages/Explore'))
 const Issues = lazy(() => import('@/pages/Issues'))
+const GoodFirstIssues = lazy(() => import('@/pages/GoodFirstIssues'))
+const LanguageIssues = lazy(() => import('@/pages/LanguageIssues'))
 const ProjectDetails = lazy(() => import('@/pages/ProjectDetails'))
 const Bookmarks = lazy(() => import('@/pages/Bookmarks'))
 const Trending = lazy(() => import('@/pages/Trending'))
@@ -26,6 +28,8 @@ export default function App() {
             <Route path="overview" element={<Overview />} />
             <Route path="explore" element={<Explore />} />
             <Route path="issues" element={<Issues />} />
+            <Route path="good-first-issues" element={<GoodFirstIssues />} />
+            <Route path="good-first-issues/:language" element={<LanguageIssues />} />
             <Route path="projects/:owner/:repo" element={<ProjectDetails />} />
             <Route path="bookmarks" element={<Bookmarks />} />
             <Route path="trending" element={<Trending />} />
